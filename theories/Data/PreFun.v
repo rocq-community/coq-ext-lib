@@ -4,6 +4,7 @@ From Coq.Relations Require Import Relations.
 Set Implicit Arguments.
 Set Strict Implicit.
 Set Universe Polymorphism.
+Set Polymorphic Inductive Cumulativity.
 
 Definition Fun@{d c} (A : Type@{d}) (B : Type@{c}) := A -> B.
 
