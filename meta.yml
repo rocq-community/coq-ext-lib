@@ -5,6 +5,7 @@ opam_name: coq-ext-lib
 organization: coq-community
 community: true
 action: true
+ci_extra_dev: true
 ci_test_dependants: true
 submodule: true
 
@@ -34,13 +35,15 @@ supported_coq_versions:
 tested_coq_opam_versions:
   - version: '8.9'
   - version: '8.11'
-  - version: '8.12'
+  - version: '8.12-ocaml-4.10-flambda'
   - version: '8.13'
   - version: '8.14'
   - version: '8.15'
   - version: '8.16'
   - version: '8.17'
   - version: '8.18'
+  - version: '8.19'
+  - version: '8.20'
   - version: 'dev'
 
 make_target: theories
@@ -51,12 +54,9 @@ action_appendix: |2-
               set -o pipefail  # recommended if the script uses pipes
 
               startGroup "Generate Coqdoc"
-                make -j`nproc` coqdoc
+                make -j`nproc` coqdoc || echo "Failed to generate Coqdoc"
               endGroup
             before_script: |
-              startGroup "Install and configure Clang"
-                opam install conf-clang
-              endGroup
               startGroup "Workaround permission issue"
                 sudo chown -R coq:coq .
               endGroup
@@ -68,10 +68,12 @@ action_appendix: |2-
           # to avoid a warning at cleanup time
           if: ${{ always() }}
           run: sudo chown -R 1001:116 .
-        - uses: actions/upload-artifact@v3
+        - uses: actions/upload-artifact@v4
+          continue-on-error: true
           with:
             name: coqdoc
             path: html
+            overwrite: true
 documentation: |
   Ideas
   -----
@@ -93,11 +95,17 @@ documentation: |
   * theories/
     - Base directory to the provided theories
 
-coqdoc_index: |
+coqdoc: true
+index_documentation: |
+  Documentation
+  -------------
+  - [0.13.0](v0.13.0/toc.html)
+  - [0.12.2](v0.12.2/toc.html)
+  - [0.12.1](v0.12.1/toc.html)
   - [0.12.0](v0.12.0/toc.html)
   - [0.11.8](v0.11.8/toc.html)
   - [0.11.7](v0.11.7/toc.html)
-  - [0.11.6](v0.11.6/toc.html)
+  - [0.11.6](v0.11.6/toc.html) (final support for Coq 8.8 and 8.10)
   - [0.11.5](v0.11.5/toc.html)
   - [0.11.4](v0.11.4/toc.html)
   - [0.11.3](v0.11.3/toc.html)
