@@ -90,12 +90,12 @@ Section except.
       | (inl l, _) => ret (inl l)
       | (inr a, t) => ret (inr (a, t))
     end)
-  ; pass := fun _ c => mkEitherT (
+  ; pass := fun _ c => mkEitherT (pass (
     x <- unEitherT c ;;
     match x with
-      | inl s => ret (inl s)
-      | inr (a,f) => pass (ret (inr a, f))
-    end)
+      | inl s => ret (inl s, fun x => x)
+      | inr (a, f) => ret (inr a, f)
+    end))
   }.
 
   Global Instance MonadFix_eitherT (MF : MonadFix m) : MonadFix eitherT :=
