@@ -14,6 +14,7 @@ Require Import ExtLib.Core.RelDec.
 Set Implicit Arguments.
 Set Strict Implicit.
 Set Universe Polymorphism.
+Set Polymorphic Inductive Cumulativity.
 
 Set Printing Universes.
 
