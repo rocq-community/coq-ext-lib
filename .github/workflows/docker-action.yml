@@ -28,7 +28,8 @@ jobs:
           - 'coqorg/coq:8.18'
           - 'coqorg/coq:8.19'
           - 'coqorg/coq:8.20'
-          - 'coqorg/coq:dev'
+          - 'rocq/rocq-prover:9.0'
+          - 'rocq/rocq-prover:dev'
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
@@ -60,7 +61,7 @@ jobs:
             endGroup
           before_script: |
             startGroup "Workaround permission issue"
-              sudo chown -R coq:coq .
+              sudo chown -R 1000:1000 .
             endGroup
           export: 'OPAMWITHTEST OPAMCONFIRMLEVEL'
         env:
