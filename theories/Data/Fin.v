@@ -100,7 +100,7 @@ Proof.
   intro. destruct (fin_case y) ; subst.
   intuition.
   destruct H ; subst.
-  intuition ; try congruence. 
+  intuition; auto with *; try congruence.
 (*  inversion H.*)
   intro ; destruct (fin_case y) ; subst ; simpl.
   intuition ; try congruence.
