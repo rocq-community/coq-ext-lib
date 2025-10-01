@@ -47,7 +47,7 @@ jobs:
           after_script: |
             startGroup "Test dependants"
               PINS=$(opam list -s --pinned --columns=package | xargs | tr ' ' ,)
-              PACKAGES=`opam list -s --depends-on coq-ext-lib --coinstallable-with $PINS`
+              PACKAGES="coq-itree coq-itree-extra coq-json coq-parsec coq-quickchick coq-wasm "
               for PACKAGE in $PACKAGES
               do DEPS_FAILED=false
                  opam install -y --deps-only $PACKAGE || DEPS_FAILED=true
