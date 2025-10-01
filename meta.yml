@@ -6,7 +6,7 @@ organization: coq-community
 community: true
 action: true
 ci_extra_dev: true
-ci_test_dependants: true
+ci_test_dependants: ['coq-itree', 'coq-itree-extra', 'coq-json', 'coq-parsec', 'coq-quickchick', 'coq-wasm']
 submodule: true
 
 synopsis: A library of Coq definitions, theorems, and tactics
@@ -44,6 +44,8 @@ tested_coq_opam_versions:
   - version: '8.18'
   - version: '8.19'
   - version: '8.20'
+tested_rocq_opam_versions:
+  - version: '9.0'
   - version: 'dev'
 
 make_target: theories
@@ -58,7 +60,7 @@ action_appendix: |2-
               endGroup
             before_script: |
               startGroup "Workaround permission issue"
-                sudo chown -R coq:coq .
+                sudo chown -R 1000:1000 .
               endGroup
             export: 'OPAMWITHTEST OPAMCONFIRMLEVEL'
           env:
