@@ -6,7 +6,9 @@ organization: coq-community
 community: true
 action: true
 ci_extra_dev: true
-ci_test_dependants: ['coq-itree', 'coq-itree-extra', 'coq-json', 'coq-parsec', 'coq-quickchick', 'coq-wasm']
+ci_test_dependants:
+  enabled: true
+  packages: ['coq-itree', 'coq-itree-extra', 'coq-json', 'coq-parsec', 'coq-quickchick', 'coq-wasm']
 submodule: true
 
 synopsis: A library of Coq definitions, theorems, and tactics
