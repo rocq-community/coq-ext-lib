@@ -9,6 +9,7 @@ Require Import ExtLib.Tactics.Injection.
 Set Implicit Arguments.
 Set Strict Implicit.
 Set Universe Polymorphism.
+Set Polymorphic Inductive Cumulativity.
 
 Section EqDec.
   Universe u.
