@@ -2,13 +2,15 @@ Require Import ExtLib.Core.Any.
 
 Set Implicit Arguments.
 Set Strict Implicit.
+Set Universe Polymorphism.
+Set Polymorphic Inductive Cumulativity.
 
-Polymorphic Class Functor@{d c} (F : Type@{d} -> Type@{c}) : Type :=
+Class Functor@{d c} (F : Type@{d} -> Type@{c}) : Type :=
 { fmap : forall {A B : Type@{d}}, (A -> B) -> F A -> F B }.
 
 Global Hint Mode Functor ! : typeclass_instances.
 
-Polymorphic Definition ID@{d} {T : Type@{d}} (f : T -> T) : Prop :=
+Definition ID@{d} {T : Type@{d}} (f : T -> T) : Prop :=
   forall x : T, f x = x.
 
 Module FunctorNotation.
