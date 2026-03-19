@@ -48,6 +48,7 @@ tested_coq_opam_versions:
   - version: '8.20'
 tested_rocq_opam_versions:
   - version: '9.0'
+  - version: '9.1'
   - version: 'dev'
 
 make_target: theories

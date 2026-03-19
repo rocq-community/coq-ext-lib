@@ -9,6 +9,7 @@ on:
   pull_request:
     branches:
       - '**'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -29,6 +30,7 @@ jobs:
           - 'coqorg/coq:8.19'
           - 'coqorg/coq:8.20'
           - 'rocq/rocq-prover:9.0'
+          - 'rocq/rocq-prover:9.1'
           - 'rocq/rocq-prover:dev'
       fail-fast: false
     steps:
@@ -50,7 +52,7 @@ jobs:
               PACKAGES="coq-itree coq-itree-extra coq-json coq-parsec coq-quickchick coq-wasm "
               for PACKAGE in $PACKAGES
               do DEPS_FAILED=false
-                 opam install -y --deps-only $PACKAGE || DEPS_FAILED=true
+                 opam install -y -t --deps-only $PACKAGE || DEPS_FAILED=true
                  [ $DEPS_FAILED == true ] || opam install -t $PACKAGE
               done
             endGroup

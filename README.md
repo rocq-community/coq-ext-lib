@@ -32,13 +32,13 @@ A collection of theories and plugins that may be useful in other Coq development
 
 - Author(s):
   - Gregory Malecha (initial)
-- Coq-community maintainer(s):
+- Rocq-community maintainer(s):
   - Gregory Malecha ([**@gmalecha**](https://github.com/gmalecha))
   - Yishuai Li ([**@liyishuai**](https://github.com/liyishuai))
 - License: [BSD 2-Clause "Simplified" License](LICENSE)
-- Compatible Coq versions: Coq 8.11 or later or 8.9
+- Compatible Rocq/Coq versions: Coq 8.11 or later or 8.9
 - Additional dependencies: none
-- Coq namespace: `ExtLib`
+- Rocq/Coq namespace: `ExtLib`
 - Related publication(s): none
 
 ## Building and installation instructions
@@ -47,15 +47,19 @@ The easiest way to install the latest released version of coq-ext-lib
 is via [OPAM](https://opam.ocaml.org/doc/Install.html):
 
 ```shell
-opam repo add coq-released https://coq.inria.fr/opam/released
+opam repo add rocq-released https://rocq-prover.org/opam/released
 opam install coq-ext-lib
 ```
 
-To instead build and install manually, do:
+To instead build and install manually, you need to make sure that all the
+libraries this development depends on are installed.  The easiest way to do that
+is still to rely on opam:
 
 ``` shell
 git clone --recurse-submodules https://github.com/coq-community/coq-ext-lib.git
 cd coq-ext-lib
+opam repo add rocq-released https://rocq-prover.org/opam/released
+opam install --deps-only .
 make theories  # or make -j <number-of-cores-on-your-machine> theories
 make install
 ```
