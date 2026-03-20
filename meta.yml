@@ -8,7 +8,14 @@ action: true
 ci_extra_dev: true
 ci_test_dependants:
   enabled: true
-  packages: ['coq-itree', 'coq-itree-extra', 'coq-json', 'coq-parsec', 'coq-quickchick', 'coq-wasm']
+  packages:
+    - coq-itree
+    - coq-itree-extra
+    - coq-json
+    - coq-parsec
+    - coq-quickchick
+    - coq-wasm
+    - rocq-metarocq-utils
 submodule: true
 
 synopsis: A library of Coq definitions, theorems, and tactics
