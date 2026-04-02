@@ -119,5 +119,7 @@ Section PairEq.
 End PairEq.
 
 Global Instance Injective_pair T U (a :T) (b:U) c d : Injective ((a,b) = (c,d)).
-refine {| result := a = c /\ b = d |}.
-Proof. abstract (inversion 1; intuition). Defined.
+Proof.
+  refine {| result := a = c /\ b = d |}.
+  abstract (inversion 1; intuition).
+Defined.
