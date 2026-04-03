@@ -81,17 +81,25 @@ Section SumEq.
 End SumEq.
 
 Global Instance Injective_inl T U a c : Injective (@inl T U a = inl c).
-refine {| result := a = c |}.
-Proof. abstract (inversion 1; intuition). Defined.
+Proof.
+  refine {| result := a = c |}.
+  abstract (inversion 1; intuition).
+Defined.
 
 Global Instance Injective_inr T U a c : Injective (@inr T U a = inr c).
-refine {| result := a = c |}.
-Proof. abstract (inversion 1; intuition). Defined.
+Proof.
+  refine {| result := a = c |}.
+  abstract (inversion 1; intuition).
+Defined.
 
 Global Instance Injective_inl_False T U a c : Injective (@inl T U a = inr c).
-refine {| result := False |}.
-Proof. abstract (inversion 1; intuition). Defined.
+Proof.
+  refine {| result := False |}.
+  abstract (inversion 1; intuition).
+Defined.
 
 Global Instance Injective_inr_False T U a c : Injective (@inr T U a = inl c).
-refine {| result := False |}.
-Proof. abstract (inversion 1; intuition). Defined.
+Proof.
+  refine {| result := False |}.
+  abstract (inversion 1; intuition).
+Defined.
