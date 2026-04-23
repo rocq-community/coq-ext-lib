@@ -11,6 +11,7 @@ Require Import Coq.Classes.Morphisms.
 Set Implicit Arguments.
 Set Strict Implicit.
 Set Asymmetric Patterns.
+Set Asymmetric Patterns No Implicits.
 Set Universe Polymorphism.
 Set Polymorphic Inductive Cumulativity.
 Set Printing Universes.

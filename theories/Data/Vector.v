@@ -3,6 +3,7 @@ Require Import ExtLib.Data.Fin.
 Set Implicit Arguments.
 Set Strict Implicit.
 Set Asymmetric Patterns.
+Set Asymmetric Patterns No Implicits.
 
 Inductive vector T : nat -> Type :=
 | Vnil : vector T 0
