@@ -3,6 +3,7 @@ Require Import ExtLib.Data.Fin.
 Set Implicit Arguments.
 Set Strict Implicit.
 Set Asymmetric Patterns.
+Set Asymmetric Patterns No Implicits.
 
 Fixpoint vector (T : Type) (n : nat) : Type :=
   match n with

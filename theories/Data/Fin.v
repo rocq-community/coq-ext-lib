@@ -7,6 +7,7 @@ Require Import ExtLib.Tactics.Injection.
 Set Implicit Arguments.
 Set Strict Implicit.
 Set Asymmetric Patterns.
+Set Asymmetric Patterns No Implicits.
 
 (** `fin n` corresponds to "naturals less than `n`",
     i.e. a finite set of size n

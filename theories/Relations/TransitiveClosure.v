@@ -4,6 +4,7 @@ Require Import Coq.Setoids.Setoid.
 Set Implicit Arguments.
 Set Strict Implicit.
 Set Asymmetric Patterns.
+Set Asymmetric Patterns No Implicits.
 
 Section parametric.
   Variable T : Type.
