@@ -24,6 +24,14 @@ Proof.
   intros. destruct (IHa b c). reflexivity.
 Defined.
 
+Lemma app_ass_trans_sym@{X}
+: forall {T : Type@{X} } (a b c : list T), a ++ b ++ c = (a ++ b) ++ c.
+Proof.
+  induction a; simpl.
+  reflexivity.
+  intros. destruct (IHa b c). reflexivity.
+Defined.
+
 Lemma app_nil_r_trans : forall {T : Type} (a : list T), a ++ nil = a.
 Proof.
   induction a; simpl.
@@ -461,7 +469,7 @@ Section hlist.
       end.
     Proof.
       intros ls ls' ls''.
-      generalize (eq_sym (app_assoc_reverse ls ls' ls'')).
+      generalize (app_ass_trans_sym ls ls' ls'').
       induction ls; simpl; intros.
       { rewrite (hlist_eta a); simpl.
         reflexivity. }
