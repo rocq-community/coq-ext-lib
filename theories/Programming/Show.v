@@ -63,7 +63,8 @@ Fixpoint show_exact (s : string) : showM :=
 Module ShowNotation.
   Delimit Scope show_scope with show.
 
-  Notation "x << y" := (cat x%show y%show) (at level 100) : show_scope.
+  Notation "x << y" := (cat x%show y%show) (at level 100, right associativity)
+    : show_scope.
   Coercion show_exact : string >-> showM.
   Definition _inject_char : ascii -> showM := inject.
   Coercion _inject_char : ascii >-> showM.
