@@ -13,7 +13,8 @@ Set Strict Implicit.
 Local Notation "x >> y" := (match x with
                               | Eq => y
                               | z => z
-                            end) (only parsing, at level 30).
+                            end)
+  (only parsing, at level 30, right associativity).
 
 Definition deprecated_bool_cmp (l r : bool) : comparison :=
   match l , r with
